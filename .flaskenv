@@ -1,0 +1,2 @@
+FLASK_APP=finx.py
+FLASK_DEBUG=1

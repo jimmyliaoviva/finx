@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review,synchronize]
+    types: [opened, reopened, ready_for_review,synchronize,edited,review_request_removed,converted_to_draft]
   issue_comment:
 jobs:
   pr_agent_job:

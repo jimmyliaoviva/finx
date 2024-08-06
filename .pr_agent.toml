@@ -1,0 +1,6 @@
+[github_app]
+pr_commands = [
+    "/describe",
+    "/review",
+    "/improve"
+]

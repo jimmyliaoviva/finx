@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-from .api import api
+from app.api import api
 
 
-from .ui import ui
+from app.ui import ui
 
 app = FastAPI()
 

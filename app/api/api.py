@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from app.tasks.hello_world import hello_world 
 from app.database import TaiwanStockInfo, session_scope
+from app.service import data_sync_service
 router = APIRouter(    
     prefix="/api",
     tags=["api"],
@@ -30,3 +31,11 @@ def database_example():
         print(f"fail to update, exception: {e}")
         return {"message":f"fail to update, exception: {e}"}
     return {"message": "query database successfully"}
+
+@router.post("/tw/syncAll")
+def sync_tw_data():
+    try:
+        data_sync_service.sync_all_tw_info()
+    except Exception as e:
+        return {"message":f"fail to sync, exception: {e}"}
+    return {"message": "update tw info successfully"}

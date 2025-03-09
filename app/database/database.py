@@ -11,15 +11,11 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 @contextmanager
 def session_scope():
     session = SessionLocal()
-    if not session.in_transaction():
-        with session.begin():
-            try:
-                yield session
-            except Exception as e:
-                session.rollback()
-                raise e
-            finally:
-                session.close()
-    else:
+    try:
         yield session
-
+        session.commit()
+    except Exception as e:
+        session.rollback()
+        raise e
+    finally:
+        session.close()

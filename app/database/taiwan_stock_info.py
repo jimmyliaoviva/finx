@@ -14,3 +14,10 @@ class TaiwanStockInfo(Base):
     @classmethod
     def get_all_tw_stock_info(cls,session):
         return session.query(cls).all()
+
+    @classmethod
+    def upsert_tw_stock_info(cls, session, data):
+        for item in data:
+            if item.get('date') == 'None':
+                item['date'] = None
+            session.merge(cls(**item))

@@ -1,8 +1,10 @@
 import requests
 
 
-def get_data(dataset: str):
-    url = "https://api.finmindtrade.com/api/v4/data"
+url = "https://api.finmindtrade.com/api/v4/data"
+
+def get_info(dataset: str):
+    # url = "https://api.finmindtrade.com/api/v4/data"
     parameter = {
         "dataset": "TaiwanStockInfo",
         "token": "", # 參考登入，獲取金鑰
@@ -10,6 +12,9 @@ def get_data(dataset: str):
     resp = requests.get(url, params=parameter)
     if resp.status_code != 200:
         print(f"Error: {resp.status_code}")
-        return
+        raise Exception
     data = resp.json()['data']
     return data
+
+def get_stock():
+    pass

@@ -21,3 +21,10 @@ class TaiwanStockInfo(Base):
             if item.get('date') == 'None':
                 item['date'] = None
             session.merge(cls(**item))
+
+    @classmethod
+    def upsert_tw_stock_price(cls, session, data):
+        for item in data:
+            if item.get('date') == 'None':
+                item['date'] = None
+            session.merge(cls(**item))

@@ -1,9 +1,16 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
+from app.utils import config
+
+host = config.get_db_host()
+user = config.get_db_user()
+password = config.get_db_password()
+database = config.get_db_name()
+
 
 engine = create_engine(
-    "mysql+pymysql://root:jimmy@localhost/finx?charset=utf8mb4"
+    f"mysql+pymysql://{user}:{password}@{host}/{database}?charset=utf8mb4"
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

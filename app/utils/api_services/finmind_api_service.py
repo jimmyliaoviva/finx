@@ -3,7 +3,7 @@ import requests
 
 url = "https://api.finmindtrade.com/api/v4/data"
 
-def get_info(dataset: str):
+def get_tw_info(dataset: str):
     # url = "https://api.finmindtrade.com/api/v4/data"
     parameter = {
         "dataset": "TaiwanStockInfo",
@@ -16,5 +16,5 @@ def get_info(dataset: str):
     data = resp.json()['data']
     return data
 
-def get_stock():
+def get_tw_stock():
     pass

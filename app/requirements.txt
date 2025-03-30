@@ -2,4 +2,6 @@ fastapi==0.111.1
 celery==5.4.0
 SQLAlchemy==2.0.38
 PyMySQL==1.1.1
-cryptography
+cryptography==44.0.2
+python-dotenv==1.0.1
+requests==2.32.3

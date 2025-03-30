@@ -9,7 +9,7 @@ timezone='Asia/Taipei',
 enable_utc=True)
 
 app.conf.imports = [
-    'app.tasks.update_price',
+    'app.tasks.update_data_tasks',
     'app.tasks.hello_world']
 
 if __name__ == '__main__':

@@ -1,0 +1,5 @@
+MYSQL_PASSWORD=your_password
+MYSQL_USER=your_user
+MYSQL_HOST=your_host
+MYSQL_PORT=your_port
+MYSQL_DATABASE=your_database
